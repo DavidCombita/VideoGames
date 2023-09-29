@@ -9,3 +9,4 @@ La aplicación ofrecerá a los usuarios la posibilidad de visualizar un listado 
 filtrarlos por género y editor. Guardar/eliminar un videojuego como favorito.
 
 # Diseño de arquitectura
+![img.png](images_info%2Fimg.png)
