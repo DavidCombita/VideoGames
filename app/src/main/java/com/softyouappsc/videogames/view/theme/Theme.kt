@@ -1,4 +1,4 @@
-package com.softyouappsc.videogames.ui.theme
+package com.softyouappsc.videogames.view.theme
 
 import android.app.Activity
 import android.os.Build

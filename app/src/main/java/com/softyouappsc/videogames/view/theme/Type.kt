@@ -1,4 +1,4 @@
-package com.softyouappsc.videogames.ui.theme
+package com.softyouappsc.videogames.view.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
