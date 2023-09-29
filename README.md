@@ -51,25 +51,27 @@ Para el inicio del diseño de la aplicación, comenzamos creando diferentes diag
 extrayendo cada requisito y cómo se vería el flujo en la aplicación. 
 Estos son de forma muy general y buscan entender cómo serían los flujos de las funcionalidades de la
 aplicación.
-![juegosSisteDiagramaFlujo.drawio.png](images_info%2FjuegosSisteDiagramaFlujo.drawio.png)
+![juegosSisteDiagramaFlujo.drawio.png](img_diagrams%2FjuegosSisteDiagramaFlujo.drawio.png)
+
 Podemos ver que estos diseños nos ayudan a entender cuál sería el flujo que debe seguir la 
 aplicación. Después de esto, mejoramos un poco más el tema de cómo sería la arquitectura.
 
 Para esta aplicación, utilizaremos una arquitectura MVVM y seguiremos el patrón de arquitectura 
 limpia, modularizando la aplicación por características. 
 Según esto, este sería el diseño de MVVM según lo recomendado y siguiendo el patrón repositorio.
-![arquitectura_Android.png](images_info%2Farquitectura_Android.png)
+![arquitectura_Android.png](img_diagrams%2Farquitectura_Android.png)
+
 Con esta arquitectura para cada uno de los módulos, podemos ver cómo quedarían, comunicados por un 
 módulo de conexión que sería, en este caso, la app.
 
 Ahora, con esto, podemos ver cómo quedarían los módulos, cómo se comunicarían y, viendo su 
 distribución, cómo quedarían conectados.
-![DiagramaArquitectura.drawio.png](images_info%2FDiagramaArquitectura.drawio.png)
+![DiagramaArquitectura.drawio.png](img_diagrams%2FDiagramaArquitectura.drawio.png)
 
 Finalmente, se crearon los siguientes diagramas de secuencia para entender cómo se comunicaría 
 cada componente entre ellos. En este caso, tenemos 5 componentes para que se comuniquen y logren 
 entender las interacciones entre objetos o componentes en un sistema a lo largo del tiempo.
-![DiagramaSecuencia.drawio.png](images_info%2FDiagramaSecuencia.drawio.png)
+![DiagramaSecuencia.drawio.png](img_diagrams%2FDiagramaSecuencia.drawio.png)
 
 # Librerias utilizadas
 1. Room database 
