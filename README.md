@@ -79,8 +79,8 @@ creó el siguiente wireframe. Este diseño se creó para buscar la facilidad de 
 generando una vista reutilizable y rápida.
 1. ![c9f1355cd97a0b99b4392483319f4395.jpg](img_diagrams%2Fc9f1355cd97a0b99b4392483319f4395.jpg)
 2. ![de32b4727cea73913233de2dcf99db1d.jpg](img_diagrams%2Fde32b4727cea73913233de2dcf99db1d.jpg)
-3. wireframe 
-![DiagramaDiseño.drawio.png](img_diagrams%2FDiagramaDise%F1o.drawio.png)
+3. wireframe
+![DiagramaDisenio.drawio.png](img_diagrams%2FDiagramaDisenio.drawio.png)
 
 # Librerias utilizadas
 1. Room database 
