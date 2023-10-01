@@ -1,9 +1,9 @@
-package com.softyouappsc.data.models
+package com.softyouappsc.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.softyouappsc.data.utils.Converters
+import com.softyouappsc.models.utils.Converters
 
 @Entity(tableName = "VideoGames")
 @TypeConverters(Converters::class)

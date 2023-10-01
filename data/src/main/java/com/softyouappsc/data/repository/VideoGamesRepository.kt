@@ -1,12 +1,11 @@
 package com.softyouappsc.data.repository
 
 import com.softyouappsc.data.database.VideoGamesDao
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import com.softyouappsc.data.network.VideoGamesApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map

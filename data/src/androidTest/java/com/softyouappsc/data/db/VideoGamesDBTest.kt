@@ -2,7 +2,7 @@ package com.softyouappsc.data.db
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.gson.Gson
-import com.softyouappsc.data.models.VideoGameDetail
+import com.softyouappsc.models.VideoGameDetail
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking

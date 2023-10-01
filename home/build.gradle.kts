@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -8,11 +8,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.softyouappsc.home"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -66,4 +62,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //modulos implementados
+    implementation(project(":data"))
+    implementation(project(":models"))
+
 }

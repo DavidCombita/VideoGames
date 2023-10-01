@@ -1,12 +1,9 @@
 package com.softyouappsc.data.network
 
-import com.softyouappsc.data.models.VideoGames
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import okhttp3.mockwebserver.SocketPolicy
 import okio.buffer
 import okio.source
 import org.hamcrest.CoreMatchers

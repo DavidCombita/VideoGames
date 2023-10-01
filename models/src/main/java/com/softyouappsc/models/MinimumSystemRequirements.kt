@@ -1,4 +1,4 @@
-package com.softyouappsc.data.models
+package com.softyouappsc.models
 
 data class MinimumSystemRequirements(
     val graphics: String,

@@ -1,3 +1,3 @@
-package com.softyouappsc.data.models
+package com.softyouappsc.models
 
 class VideoGames : ArrayList<VideoGameDetail>()

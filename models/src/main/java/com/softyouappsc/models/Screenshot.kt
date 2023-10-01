@@ -1,4 +1,4 @@
-package com.softyouappsc.data.models
+package com.softyouappsc.models
 
 data class Screenshot(
     val id: Int,

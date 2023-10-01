@@ -69,9 +69,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //modulos implementados
+    implementation(project(":detail"))
+
     //di
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    //navegación
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 }
 
 // Allow references to generated code
