@@ -14,15 +14,15 @@ class VideoGamesRepository @Inject constructor(
     private val apiHelper: VideoGamesApiHelper
 ): VideoGamesRepositoryHelper  {
 
-    override fun getListVideoGames(): Flow<VideoGames> = flow<VideoGames> {
-        TODO("Not yet implemented")
+    override fun getListVideoGames(): Flow<VideoGames> = flow {
+        apiHelper.getListVideoGames()?.let { emit(it) }
     }.catch { e ->
         println(e.message)
     }.flowOn(Dispatchers.IO)
 
 
-    override fun getVideoGameById(idVG: Int): Flow<VideoGameDetail> = flow<VideoGameDetail> {
-        TODO("Not yet implemented")
+    override fun getVideoGameById(idVG: Int): Flow<VideoGameDetail> = flow {
+        apiHelper.getVideoGameById(idVG)?.let { emit(it) }
     }.catch { e ->
         println(e.message)
     }.flowOn(Dispatchers.IO)
