@@ -1,4 +1,4 @@
-package com.softyouappsc.videogames.ui.theme
+package com.softyouappsc.detail.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

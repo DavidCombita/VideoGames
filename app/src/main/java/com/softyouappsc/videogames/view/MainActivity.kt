@@ -1,4 +1,4 @@
-package com.softyouappsc.videogames
+package com.softyouappsc.videogames.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.softyouappsc.videogames.ui.theme.VideoGamesTheme
+import com.softyouappsc.videogames.view.theme.VideoGamesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Hello module app $name!",
         modifier = modifier
     )
 }
