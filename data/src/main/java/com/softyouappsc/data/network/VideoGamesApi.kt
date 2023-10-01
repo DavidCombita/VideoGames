@@ -1,12 +1,17 @@
 package com.softyouappsc.data.network
 
+import com.softyouappsc.data.models.VideoGameDetail
+import com.softyouappsc.data.models.VideoGames
+import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface VideoGamesApi {
     @GET("/api/games")
-    suspend fun getListVideoGames():Unit
+    suspend fun getListVideoGames(): Response<VideoGames>
 
-    @GET("/api/game?id={id}")
-    suspend fun getVideoGameById(idVG: Int): Unit
+    @GET("/api/game")
+    suspend fun getVideoGameById(@Query("id") idVG: Int): Response<VideoGameDetail>
 
 }
