@@ -9,4 +9,10 @@ interface VideoGamesRepositoryHelper {
     fun getListVideoGames(): Flow<VideoGames>
 
     fun getVideoGameById(idVG: Int): Flow<VideoGameDetail>
+
+    fun getListVideoGamesDB(): Flow<VideoGames>
+
+    fun getVideoGameByIdDB(idVG: Int): Flow<VideoGameDetail>
+
+    fun saveVideoGameInDB(videoGame: VideoGameDetail)
 }

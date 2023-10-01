@@ -1,4 +1,4 @@
-package com.softyouappsc.data.network
+package com.softyouappsc.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

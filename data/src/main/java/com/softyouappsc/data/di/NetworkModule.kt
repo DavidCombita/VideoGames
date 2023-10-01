@@ -47,8 +47,4 @@ object NetworkModule {
     @Singleton
     fun provideApiHelper(apiVideoGames: VideoGamesApi): VideoGamesApiHelper = VideoGamesApiHelperImpl(apiVideoGames)
 
-    @Provides
-    @Singleton
-    fun provideNetworkRepository(videoGamesApiHelper: VideoGamesApiHelper): VideoGamesRepositoryHelper =
-        VideoGamesRepository(videoGamesApiHelper)
 }
