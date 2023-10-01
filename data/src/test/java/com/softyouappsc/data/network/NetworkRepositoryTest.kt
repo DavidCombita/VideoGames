@@ -75,6 +75,22 @@ class NetworkRepositoryTest {
         assertEquals(452, actualVideoGames.id)
     }
 
+    @Test
+    fun `obtener lista de juegos emitiendo VideoGameDetail DB`() = runBlocking {
+        val expectedVideoGameDetail = enqueueResponseVideoGameDetail("api-response-by-id.json")
+
+        flow {
+            emit(listOf( expectedVideoGameDetail))
+        }
+
+        val result = videoGameRepository.getListVideoGamesDB()
+
+        val actualVideoGames = result.first()
+
+        assertEquals(expectedVideoGameDetail.id, actualVideoGames[0].id)
+        assertEquals(452, actualVideoGames[0].id)
+    }
+
     private fun enqueueResponseVideoGames(file: String): VideoGames {
         val inputStrem = javaClass.classLoader?.getResourceAsStream("api_response/$file")
             ?.source()?.buffer()!!.readString(Charsets.UTF_8)
