@@ -1,8 +1,10 @@
 package com.softyouappsc.data.di
 
-import com.softyouappsc.data.network.VideGamesApiHelper
+import com.softyouappsc.data.network.VideoGamesApiHelper
 import com.softyouappsc.data.network.VideoGamesApi
 import com.softyouappsc.data.network.VideoGamesApiHelperImpl
+import com.softyouappsc.data.repository.VideoGamesRepository
+import com.softyouappsc.data.repository.VideoGamesRepositoryHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,5 +45,10 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper(apiHelper: VideoGamesApiHelperImpl): VideGamesApiHelper = apiHelper
+    fun provideApiHelper(apiVideoGames: VideoGamesApi): VideoGamesApiHelper = VideoGamesApiHelperImpl(apiVideoGames)
+
+    @Provides
+    @Singleton
+    fun provideNetworkRepository(videoGamesApiHelper: VideoGamesApiHelper): VideoGamesRepositoryHelper =
+        VideoGamesRepository(videoGamesApiHelper)
 }
