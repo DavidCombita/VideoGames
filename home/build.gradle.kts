@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
 android {
@@ -67,4 +68,24 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":models"))
 
+    //corrutinas
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    //di
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    // Para la integración con ViewModel
+    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha03")
+    // Para la integración de Hilt con Navigation
+    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
+
+    //Pager
+    implementation ("com.google.accompanist:accompanist-pager:0.15.0")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

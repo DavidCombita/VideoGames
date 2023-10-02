@@ -9,12 +9,14 @@ import com.softyouappsc.detail.view.viewmodels.DetailViewModel
 
 @Composable
 fun DetailComponents(
-    onTopicClick: (Int) -> Unit,
+    onDetailClick: (Int) -> Unit,
+    onBackClick: () -> Unit ,
+    idVideoGame: Int,
     modifier: Modifier = Modifier,
     viewModel: DetailViewModel = hiltViewModel(),
 ) {
+    Log.e("numero enviado",idVideoGame.toString())
     Text(text = "Hola soy david iniciaaa")
-    Log.e("Comienza", "-----------------------------------------------------")
     viewModel.getDataDetail(452)
 }
 

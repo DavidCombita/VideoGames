@@ -2,17 +2,21 @@ package com.softyouappsc.videogames.view.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.softyouappsc.detail.view.navigation.detailNavigationRoute
 import com.softyouappsc.detail.view.navigation.detailVideoGame
+import com.softyouappsc.home.view.navigation.homeNavigationRoute
+import com.softyouappsc.home.view.navigation.navigateHomeVideoGame
+import com.softyouappsc.videogames.view.components.SplashScreen
+import com.softyouappsc.videogames.view.components.splashNavigationRoute
 
 @Composable
 fun VideoGamesNavHost(
     modifier: Modifier = Modifier,
-    startDestination: String = detailNavigationRoute,
+    startDestination: String = splashNavigationRoute,
 ) {
     val navController = rememberNavController()
     NavHost(
@@ -20,12 +24,23 @@ fun VideoGamesNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        detailVideoGame ( onDetailClick = navController::navigateToDetail )
+        detailVideoGame ( onDetailClick = navController::navigateToDetail,
+            onBackClick = navController::popBackStack)
+        navigateHomeVideoGame (onHomeClick = navController::navigateToHome,
+            onDetailClick = navController::navigateToDetail)
+        splashVideoGame (navController)
     }
 }
 
 fun NavController.navigateToDetail(videoGameId: Int) {
     this.navigate("detail_game/$videoGameId") {
         launchSingleTop = true
+    }
+}
+
+fun NavController.navigateToHome() {
+    this.navigate("home") {
+        launchSingleTop = true
+        popUpTo(0)
     }
 }

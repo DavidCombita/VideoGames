@@ -71,6 +71,7 @@ dependencies {
 
     //modulos implementados
     implementation(project(":detail"))
+    implementation(project(":home"))
 
     //di
     implementation("com.google.dagger:hilt-android:2.44")
@@ -78,6 +79,9 @@ dependencies {
 
     //navegación
     implementation("androidx.navigation:navigation-compose:2.5.3")
+
+    //animaciones
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
 }
 
 // Allow references to generated code
