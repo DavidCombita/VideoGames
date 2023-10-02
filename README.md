@@ -88,7 +88,11 @@ generando una vista reutilizable y rápida.
 3. Jetpack Compose
 4. Dagger hilt
 5. Lottie Animations
-6. 
+
+# Instalación
+Para la instalación de la aplicación, es clonar el repositorio y en la base se tiene el archivo
+[videogames.apk](videogames.apk)
+Esta es la aplicación creada y puede verla, ya lo demás es abrir el visual studio y utilizarla.
 
 
 
