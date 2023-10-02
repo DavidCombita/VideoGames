@@ -75,6 +75,8 @@ dependencies {
     androidTestImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("androidx.test:rules:1.4.0")
 
+    //modulos implementados
+    implementation(project(":models"))
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")

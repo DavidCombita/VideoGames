@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -8,11 +10,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.softyouappsc.detail"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -66,4 +64,47 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //modulos implementados
+    implementation(project(":data"))
+    implementation(project(":models"))
+
+    //test
+    testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    kaptTest("com.google.dagger:hilt-android-compiler:2.44")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+    testImplementation("org.hamcrest:hamcrest:2.2")
+    androidTestImplementation("androidx.test:core:1.4.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+    testImplementation ("org.mockito:mockito-junit-jupiter:3.11.2")
+
+
+    //corrutinas
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    //di
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    // Para la integración con ViewModel
+    kapt ("androidx.hilt:hilt-compiler:1.0.0-alpha03")
+    // Para la integración de Hilt con Navigation
+    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
+
+    //images
+    implementation("io.coil-kt:coil-compose:2.0.0")
+    //Pager
+    implementation ("com.google.accompanist:accompanist-pager:0.15.0")
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

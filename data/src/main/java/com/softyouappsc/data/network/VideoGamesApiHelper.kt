@@ -1,9 +1,7 @@
 package com.softyouappsc.data.network
 
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
-import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 
 interface VideoGamesApiHelper {
 

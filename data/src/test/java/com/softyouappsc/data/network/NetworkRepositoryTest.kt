@@ -3,8 +3,8 @@ package com.softyouappsc.data.network
 import com.google.gson.Gson
 import com.softyouappsc.data.CoroutinesTestRule
 import com.softyouappsc.data.database.VideoGamesDao
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import com.softyouappsc.data.repository.VideoGamesRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.Flow

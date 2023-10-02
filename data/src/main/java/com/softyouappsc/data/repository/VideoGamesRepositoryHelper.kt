@@ -1,7 +1,7 @@
 package com.softyouappsc.data.repository
 
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import kotlinx.coroutines.flow.Flow
 
 interface VideoGamesRepositoryHelper {
@@ -15,4 +15,6 @@ interface VideoGamesRepositoryHelper {
     fun getVideoGameByIdDB(idVG: Int): Flow<VideoGameDetail>
 
     fun saveVideoGameInDB(videoGame: VideoGameDetail)
+
+    fun deleteVideoGameDB(videoGame: VideoGameDetail)
 }

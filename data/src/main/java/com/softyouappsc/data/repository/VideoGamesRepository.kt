@@ -1,8 +1,8 @@
 package com.softyouappsc.data.repository
 
 import com.softyouappsc.data.database.VideoGamesDao
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import com.softyouappsc.data.network.VideoGamesApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -41,4 +41,9 @@ class VideoGamesRepository @Inject constructor(
     override fun saveVideoGameInDB(videoGame: VideoGameDetail) {
         videoGameDao.saveVideoGameDetail(videoGame)
     }
+
+    override fun deleteVideoGameDB(videoGame: VideoGameDetail) {
+        videoGameDao.deleteVideoGameDB(videoGame)
+    }
+
 }
