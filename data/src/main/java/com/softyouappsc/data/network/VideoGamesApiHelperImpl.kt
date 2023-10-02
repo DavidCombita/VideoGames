@@ -1,8 +1,7 @@
 package com.softyouappsc.data.network
 
-import com.softyouappsc.data.models.VideoGameDetail
-import com.softyouappsc.data.models.VideoGames
-import retrofit2.Response
+import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import javax.inject.Inject
 
 class VideoGamesApiHelperImpl @Inject constructor(
