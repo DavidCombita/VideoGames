@@ -41,8 +41,7 @@ fun BuildSlider(list: List<Screenshot>) {
     Text(text = "Galeria",
         modifier = Modifier.fillMaxSize(),
         textAlign = TextAlign.Center,
-        fontSize = 20.sp,
-        color = Color.Black)
+        fontSize = 20.sp)
 
     HorizontalPager(
         state = pagerState,

@@ -238,8 +238,7 @@ fun CardHomeListGames(
                 .padding(bottom = 5.dp, start = 5.dp, top = 5.dp)
                 .fillMaxSize(),
             textAlign = TextAlign.Center,
-            fontSize = 20.sp,
-            color = Color.Black
+            fontSize = 20.sp
         )
         AsyncImage(
             model = videoGame.thumbnail,
@@ -259,7 +258,6 @@ fun CardHomeListGames(
             Text(
                 text = "Genero: "+videoGame.genre,
                 fontWeight = FontWeight.ExtraBold,
-                color = Color.Black,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(
@@ -268,7 +266,6 @@ fun CardHomeListGames(
             )
             Text(
                 text = "Descripción corta: "+videoGame.short_description,
-                color = Color.Black,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(
@@ -277,7 +274,6 @@ fun CardHomeListGames(
             )
             Text(
                 text = "Plataforma: "+ videoGame.platform,
-                color = Color.Black,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(
@@ -286,7 +282,6 @@ fun CardHomeListGames(
             )
             Text(
                 text = "Editor: "+ videoGame.publisher,
-                color = Color.Black,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(
@@ -295,7 +290,6 @@ fun CardHomeListGames(
             )
             Text(
                 text = "Fecha de lanzamiento: "+ cambiarFormatoFecha(videoGame.release_date),
-                color = Color.Black,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(

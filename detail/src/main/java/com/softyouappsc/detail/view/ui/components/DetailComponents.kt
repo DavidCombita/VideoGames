@@ -91,8 +91,7 @@ fun DetailComponents(
                         .padding(top = 10.dp)
                         .fillMaxSize(),
                     textAlign = TextAlign.Center,
-                    fontSize = 23.sp,
-                    color = Color.Black
+                    fontSize = 23.sp
                 )
 
                 AsyncImage(
@@ -113,8 +112,7 @@ fun DetailComponents(
                         .padding(bottom = 5.dp)
                         .fillMaxSize(),
                     textAlign = TextAlign.Center,
-                    fontSize = 20.sp,
-                    color = Color.Black)
+                    fontSize = 20.sp)
                 Text(text = game!!.description ?: "", modifier = Modifier.padding(bottom = 5.dp))
                 Text(text = "Desarrollador: ${game!!.developer}", modifier = Modifier.padding(bottom = 10.dp))
 
@@ -126,8 +124,7 @@ fun DetailComponents(
                         .padding(bottom = 5.dp)
                         .fillMaxSize(),
                     textAlign = TextAlign.Center,
-                    fontSize = 20.sp,
-                    color = Color.Black)
+                    fontSize = 20.sp)
                 Text(text = "Sistema opertivo: ${game!!.minimum_system_requirements!!.os}",
                     modifier = Modifier.padding(bottom = 10.dp))
                 Text(text = "Memoria ram: ${game!!.minimum_system_requirements!!.memory}",
