@@ -11,4 +11,8 @@ class UseCaseVideoGamesHome @Inject constructor(
     operator fun invoke(): Flow<VideoGames> {
         return videoGamesRepository.getListVideoGames()
     }
+
+    fun getListDataBase(): Flow<VideoGames> {
+        return videoGamesRepository.getListVideoGamesDB()
+    }
 }

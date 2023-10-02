@@ -1,5 +1,6 @@
 package com.softyouappsc.detail.view.ui.components
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -38,7 +39,7 @@ fun BuildSlider(list: List<Screenshot>) {
     )
 
     Text(text = "Galeria",
-        modifier = Modifier.padding(bottom = 10.dp).fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         textAlign = TextAlign.Center,
         fontSize = 20.sp,
         color = Color.Black)
@@ -47,7 +48,7 @@ fun BuildSlider(list: List<Screenshot>) {
         state = pagerState,
         modifier = Modifier
             .fillMaxWidth()
-            .height(250.dp)
+            .height(180.dp)
             .padding(start = 5.dp, end = 5.dp)
     ) { page ->
         Card(
@@ -56,37 +57,15 @@ fun BuildSlider(list: List<Screenshot>) {
             elevation = CardDefaults.cardElevation(0.dp),
             modifier = Modifier
         ) {
-            val scaleFactor = calculateScaleFactorForPage(page, pagerState)
             AsyncImage(
                 model = list[page].image,
                 contentDescription = null,
                 modifier = Modifier
-                    .height(200.dp)
-                    .width(300.dp * scaleFactor)
-                    .padding(end = 5.dp, start = if (page > 0) 5.dp else 0.dp)
-                    .offset {
-                        val pageOffset = this@HorizontalPager.calculateCurrentOffsetForPage(page)
-                        IntOffset(
-                            x = (70.dp * pageOffset).roundToPx(),
-                            y = 0,
-                        )
-                    },
+                    .height(150.dp)
+                    .width(300.dp)
+                    .padding(end = 2.dp, start = 2.dp),
                 contentScale = ContentScale.Fit
             )
         }
-    }
-}
-
-@OptIn(ExperimentalPagerApi::class)
-private fun calculateScaleFactorForPage(page: Int, pagerState: com.google.accompanist.pager.PagerState): Float {
-    val minScale = 0.9f
-    val maxScale = 0.8f
-    val scaleFactor = 0.1f
-
-    val pageOffset = pagerState.currentPageOffset.absoluteValue
-    return when {
-        page < pagerState.currentPage -> minScale + scaleFactor * pageOffset
-        page > pagerState.currentPage -> minScale + scaleFactor * (1 - pageOffset)
-        else -> maxScale
     }
 }

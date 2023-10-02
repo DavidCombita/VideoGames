@@ -3,14 +3,10 @@ package com.softyouappsc.videogames.view.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.softyouappsc.detail.view.navigation.detailVideoGame
-import com.softyouappsc.home.view.navigation.homeNavigationRoute
 import com.softyouappsc.home.view.navigation.navigateHomeVideoGame
-import com.softyouappsc.videogames.view.components.SplashScreen
 import com.softyouappsc.videogames.view.components.splashNavigationRoute
 
 @Composable
@@ -26,14 +22,15 @@ fun VideoGamesNavHost(
     ) {
         detailVideoGame ( onDetailClick = navController::navigateToDetail,
             onBackClick = navController::popBackStack)
-        navigateHomeVideoGame (onHomeClick = navController::navigateToHome,
+        navigateHomeVideoGame (
+            onHomeClick = navController::navigateToHome,
             onDetailClick = navController::navigateToDetail)
         splashVideoGame (navController)
     }
 }
 
-fun NavController.navigateToDetail(videoGameId: Int) {
-    this.navigate("detail_game/$videoGameId") {
+fun NavController.navigateToDetail(videoGameId: Int, isDB: Boolean) {
+    this.navigate("detail_game/$videoGameId/$isDB") {
         launchSingleTop = true
     }
 }

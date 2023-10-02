@@ -1,7 +1,5 @@
 package com.softyouappsc.home.view.components
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import com.google.accompanist.pager.HorizontalPager
 import androidx.compose.material.icons.Icons
@@ -75,7 +72,7 @@ fun ProgressCenter() {
 @Composable
 fun HomeComponent(
     onHomeClick: () -> Unit,
-    onDetailClick: (Int) -> Unit,
+    onDetailClick: (Int, Boolean) -> Unit,
     navController: NavHostController = rememberNavController(),
     viewModel: HomeViewModel = hiltViewModel()
 ) {
@@ -101,6 +98,7 @@ fun HomeComponent(
     }
 
     val games by viewModel.games.collectAsState()
+    val gamesDB by viewModel.gamesDB.collectAsState()
 
     Scaffold(
         bottomBar = {
@@ -133,17 +131,16 @@ fun HomeComponent(
             ) { page ->
                 if (selectedItem == 0) {
                     if (games != null) {
-                        LazyListGames(games, onDetailClick)
+                        LazyListGames(games, onDetailClick, false)
                     } else {
                         ProgressCenter()
                     }
                 } else {
-                    Text(
-                        text = "guardados",
-                        fontWeight = FontWeight.ExtraBold,
-                        color = Color.Black,
-                        modifier = Modifier.padding(start = 10.dp)
-                    )
+                    if(gamesDB != null){
+                        LazyListGames(gamesDB, onDetailClick, true)
+                    }else{
+                        ProgressCenter()
+                    }
                 }
             }
         }
@@ -153,21 +150,25 @@ fun HomeComponent(
 @Composable
 private fun LazyListGames(
     games: VideoGames?,
-    onDetailClick: (Int) -> Unit
+    onDetailClick: (Int, Boolean) -> Unit,
+    isDB: Boolean
 ) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
     ) {
         items(games!!) { item ->
-            CardHomeListGames(item, onDetailClick)
+            CardHomeListGames(item, onDetailClick, isDB)
         }
     }
 }
 
 @Composable
-fun CardHomeListGames(videoGame: VideoGameDetail,
-                      onDetailClick: (Int) -> Unit){
+fun CardHomeListGames(
+    videoGame: VideoGameDetail,
+    onDetailClick: (Int, Boolean) -> Unit,
+    isDB: Boolean
+){
     Card(modifier = Modifier
         .padding(
             start = 10.dp,
@@ -176,7 +177,7 @@ fun CardHomeListGames(videoGame: VideoGameDetail,
             top = 10.dp
         )
         .clickable {
-            onDetailClick(videoGame.id)
+            onDetailClick(videoGame.id, isDB)
         },
         colors = CardDefaults.cardColors(Color.Transparent),
         shape = RoundedCornerShape(20.dp),

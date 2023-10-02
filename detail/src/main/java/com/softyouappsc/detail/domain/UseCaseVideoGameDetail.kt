@@ -11,4 +11,15 @@ class UseCaseVideoGameDetail @Inject constructor(
     operator fun invoke(idVG: Int): Flow<VideoGameDetail> {
         return videoGamesRepository.getVideoGameById(idVG)
     }
+
+    fun getVideoGamesDB(id: Int): Flow<VideoGameDetail> {
+        return videoGamesRepository.getVideoGameByIdDB(id)
+    }
+    fun saveVideoGame(videoGame: VideoGameDetail) {
+        return videoGamesRepository.saveVideoGameInDB(videoGame)
+    }
+
+    fun deleteVideoGame(videoGame: VideoGameDetail) {
+        return videoGamesRepository.deleteVideoGameDB(videoGame)
+    }
 }

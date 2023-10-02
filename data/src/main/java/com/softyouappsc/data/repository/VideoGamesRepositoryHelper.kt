@@ -15,4 +15,6 @@ interface VideoGamesRepositoryHelper {
     fun getVideoGameByIdDB(idVG: Int): Flow<VideoGameDetail>
 
     fun saveVideoGameInDB(videoGame: VideoGameDetail)
+
+    fun deleteVideoGameDB(videoGame: VideoGameDetail)
 }

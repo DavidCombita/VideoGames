@@ -6,6 +6,7 @@ import com.softyouappsc.models.VideoGames
 import com.softyouappsc.data.network.VideoGamesApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -40,4 +41,9 @@ class VideoGamesRepository @Inject constructor(
     override fun saveVideoGameInDB(videoGame: VideoGameDetail) {
         videoGameDao.saveVideoGameDetail(videoGame)
     }
+
+    override fun deleteVideoGameDB(videoGame: VideoGameDetail) {
+        videoGameDao.deleteVideoGameDB(videoGame)
+    }
+
 }
