@@ -13,5 +13,4 @@ fun NavGraphBuilder.splashVideoGame(navController: NavHostController) {
     ) {
         SplashScreen(navController)
     }
-
 }

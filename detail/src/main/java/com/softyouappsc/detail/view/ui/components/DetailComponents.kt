@@ -51,6 +51,7 @@ fun DetailComponents(
     var loading by remember { mutableStateOf(false) }
     val game by viewModel.detail.collectAsState()
     val save by viewModel.save.collectAsState()
+    val delete by viewModel.delete.collectAsState()
 
     LaunchedEffect(idVideoGame) {
         loading = true
@@ -59,7 +60,10 @@ fun DetailComponents(
 
     val mContext = LocalContext.current
     if(save){
-        mToast(mContext,isDB)
+        mToast(mContext, isDB)
+    }
+    if(delete){
+        mToast(mContext,true)
     }
 
     Scaffold(

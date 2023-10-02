@@ -85,6 +85,8 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.0.0")
     //Pager
     implementation ("com.google.accompanist:accompanist-pager:0.15.0")
+    //animaciones
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
 }
 
 // Allow references to generated code

@@ -72,6 +72,7 @@ dependencies {
     //modulos implementados
     implementation(project(":detail"))
     implementation(project(":home"))
+    implementation(project(":models"))
 
     //di
     implementation("com.google.dagger:hilt-android:2.44")

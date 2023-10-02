@@ -79,6 +79,10 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("androidx.test:rules:1.4.0")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+    testImplementation ("org.mockito:mockito-junit-jupiter:3.11.2")
+
 
     //corrutinas
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")

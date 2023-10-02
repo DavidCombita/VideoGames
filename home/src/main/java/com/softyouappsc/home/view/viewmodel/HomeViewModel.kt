@@ -26,12 +26,19 @@ class HomeViewModel @Inject constructor(
     private val _gamesDB = MutableStateFlow<VideoGames?>(null)
     val gamesDB: StateFlow<VideoGames?> get() = _gamesDB
 
-    init {
+    fun getVideoGames() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 useCaseVideoGameDetail().collect { result ->
                     _games.value = result
                 }
+            }
+        }
+    }
+
+    fun getVideoGamesDB() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
                 useCaseVideoGameDetail.getListDataBase().collect{
                     _gamesDB.value = it
                 }

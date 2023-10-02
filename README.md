@@ -87,7 +87,8 @@ generando una vista reutilizable y rápida.
 2. Retrofit
 3. Jetpack Compose
 4. Dagger hilt
-5. 
+5. Lottie Animations
+6. 
 
 
 

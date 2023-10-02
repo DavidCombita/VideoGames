@@ -13,7 +13,8 @@ fun NavController.navigateToHomeGame(navOptions: NavOptions? = null) {
     this.navigate(homeNavigationRoute, navOptions)
 }
 
-fun NavGraphBuilder.navigateHomeVideoGame(onHomeClick: () -> Unit, onDetailClick: (Int, Boolean) -> Unit) {
+fun NavGraphBuilder.navigateHomeVideoGame(onHomeClick: () -> Unit,
+                                          onDetailClick: (Int, Boolean) -> Unit) {
     composable(
         route = homeNavigationRoute,
     ) {

@@ -1,5 +1,7 @@
 package com.softyouappsc.home.view.components
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,6 +18,7 @@ import com.google.accompanist.pager.HorizontalPager
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -38,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -46,11 +50,17 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
+import com.softyouappsc.home.R
 import com.softyouappsc.home.view.viewmodel.HomeViewModel
 import com.softyouappsc.models.VideoGameDetail
 import com.softyouappsc.models.VideoGames
+import com.softyouappsc.models.utils.isNetworkAvailable
 import kotlinx.coroutines.launch
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -76,6 +86,8 @@ fun HomeComponent(
     navController: NavHostController = rememberNavController(),
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+
     val coroutineScope = rememberCoroutineScope()
 
     var selectedItem by remember {
@@ -133,18 +145,55 @@ fun HomeComponent(
                     if (games != null) {
                         LazyListGames(games, onDetailClick, false)
                     } else {
-                        ProgressCenter()
+                        if(isNetworkAvailable(context)){
+                            viewModel.getVideoGames()
+                            ProgressCenter()
+                        }else{
+                            VerifyInternet(viewModel)
+                        }
                     }
                 } else {
                     if(gamesDB != null){
                         LazyListGames(gamesDB, onDetailClick, true)
                     }else{
+                        viewModel.getVideoGamesDB()
                         ProgressCenter()
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+private fun VerifyInternet(viewModel: HomeViewModel) {
+    val context = LocalContext.current
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animation_no_internet))
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+        LottieAnimation(composition = composition, iterations = LottieConstants.IterateForever)
+        Text(
+            text = "SIN CONEXIÓN", modifier = Modifier
+                .padding(top = 30.dp)
+                .fillMaxSize(),
+            fontSize = 15.sp,
+            textAlign = TextAlign.Center
+        )
+    }
+    Box(contentAlignment = Alignment.BottomCenter, modifier = Modifier.fillMaxSize()) {
+        Button(onClick = {
+            if(isNetworkAvailable(context)){
+                viewModel.getVideoGames()
+            }else{
+                mToast(context)
+            }
+        }, modifier = Modifier.padding(bottom = 30.dp)) {
+            Text(text = "Reintentar")
+        }
+    }
+}
+
+private fun mToast(context: Context){
+    Toast.makeText(context, "No hay internet, Verifique su conexión", Toast.LENGTH_SHORT).show()
 }
 
 @Composable
