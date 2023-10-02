@@ -1,12 +1,13 @@
 package com.softyouappsc.home.view.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import com.google.accompanist.pager.HorizontalPager
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -19,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,6 +28,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -45,6 +49,8 @@ fun HomeComponent(
     navController: NavHostController = rememberNavController(),
     viewModel: HomeViewModel = hiltViewModel()
 ){
+    val coroutineScope = rememberCoroutineScope()
+
     var selectedItem by remember {
         mutableStateOf(0)
     }
@@ -58,11 +64,11 @@ fun HomeComponent(
         initialPage = 0
     )
 
-    val coroutineScope = rememberCoroutineScope()
-
     LaunchedEffect(pagerState.currentPage) {
         selectedItem = pagerState.currentPage
     }
+
+    val games by viewModel.games.collectAsState()
 
     Scaffold(
         bottomBar = {
@@ -84,18 +90,40 @@ fun HomeComponent(
     ){ innerPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            HorizontalPager(state = pagerState) { page ->
-                LazyColumn(
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .fillMaxWidth()
-                        .fillMaxHeight(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-
+            HorizontalPager(state = pagerState,
+                modifier = Modifier.fillMaxSize(),
+                ) { page ->
+                if(selectedItem == 0){
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ){
+                        games?.let { gameList ->
+                            items(gameList) { item ->
+                                Text(
+                                    text = item.title,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    color = Color.Black,
+                                    modifier = Modifier.padding(start = 10.dp,
+                                        bottom = 30.dp)
+                                        .clickable {
+                                            onDetailClick(item.id)
+                                        }
+                                )
+                            }
+                        }
+                    }
+                }else{
+                    Text(
+                        text = "guardados",
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Color.Black,
+                        modifier = Modifier.padding(start = 10.dp)
+                    )
                 }
             }
         }

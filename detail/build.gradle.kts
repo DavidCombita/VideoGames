@@ -92,6 +92,12 @@ dependencies {
     kapt ("androidx.hilt:hilt-compiler:1.0.0-alpha03")
     // Para la integración de Hilt con Navigation
     implementation ("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
+
+    //images
+    implementation("io.coil-kt:coil-compose:2.0.0")
+    //Pager
+    implementation ("com.google.accompanist:accompanist-pager:0.15.0")
+
 }
 
 // Allow references to generated code

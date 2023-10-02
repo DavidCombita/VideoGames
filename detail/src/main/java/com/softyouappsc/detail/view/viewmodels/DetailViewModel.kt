@@ -9,8 +9,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.softyouappsc.detail.domain.UseCaseVideoGameDetail
 import com.softyouappsc.models.VideoGameDetail
+import com.softyouappsc.models.VideoGames
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -20,14 +24,16 @@ class DetailViewModel @Inject constructor(
     private val useCaseVideoGameDetail: UseCaseVideoGameDetail
 ): ViewModel() {
 
-    var state by mutableStateOf<VideoGameDetail?>(null)
-        private set
+    private val _gamesDetail = MutableStateFlow<VideoGameDetail?>(null)
+    val detail: StateFlow<VideoGameDetail?> get() = _gamesDetail
 
     fun getDataDetail(id: Int){
         viewModelScope.launch {
             withContext(Dispatchers.IO){
-                useCaseVideoGameDetail(id).collect{
-                    Log.e("Se obtvo viewmodel", it.title)
+                useCaseVideoGameDetail(id).collect{ game ->
+                    viewModelScope.launch {
+                        _gamesDetail.value = game
+                    }
                 }
             }
         }
