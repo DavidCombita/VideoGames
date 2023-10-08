@@ -1,4 +1,4 @@
-package com.softyouappsc.data.database
+package com.softyouappsc.data.datasource.database.room
 
 import androidx.room.Dao
 import androidx.room.Delete

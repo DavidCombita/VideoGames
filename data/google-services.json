@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "406340562650",
+    "firebase_url": "https://videogames-8dbb3-default-rtdb.firebaseio.com",
+    "project_id": "videogames-8dbb3",
+    "storage_bucket": "videogames-8dbb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406340562650:android:5efe7fec1775c4fb7cbfe3",
+        "android_client_info": {
+          "package_name": "com.softyouappsc.videogames"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA08sovANt2n7YUcYxfVn45fLd1pT4JHHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

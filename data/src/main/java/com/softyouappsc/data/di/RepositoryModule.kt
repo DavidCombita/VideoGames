@@ -1,7 +1,7 @@
 package com.softyouappsc.data.di
 
-import com.softyouappsc.data.database.VideoGamesDao
-import com.softyouappsc.data.network.VideoGamesApiHelper
+import com.softyouappsc.data.datasource.database.room.VideoGamesDao
+import com.softyouappsc.data.datasource.network.VideoGamesApiHelper
 import com.softyouappsc.data.repository.VideoGamesRepository
 import com.softyouappsc.data.repository.VideoGamesRepositoryHelper
 import dagger.Module

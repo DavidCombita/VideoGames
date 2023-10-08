@@ -1,8 +1,8 @@
 package com.softyouappsc.data.di
 
-import com.softyouappsc.data.network.VideoGamesApiHelper
-import com.softyouappsc.data.network.VideoGamesApi
-import com.softyouappsc.data.network.VideoGamesApiHelperImpl
+import com.softyouappsc.data.datasource.network.VideoGamesApiHelper
+import com.softyouappsc.data.datasource.network.VideoGamesApi
+import com.softyouappsc.data.datasource.network.VideoGamesApiHelperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

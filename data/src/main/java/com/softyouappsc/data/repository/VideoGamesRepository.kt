@@ -1,12 +1,12 @@
 package com.softyouappsc.data.repository
 
-import com.softyouappsc.data.database.VideoGamesDao
+import com.softyouappsc.data.datasource.database.DataBaseDataSource
+import com.softyouappsc.data.datasource.database.room.VideoGamesDao
 import com.softyouappsc.models.VideoGameDetail
 import com.softyouappsc.models.VideoGames
-import com.softyouappsc.data.network.VideoGamesApiHelper
+import com.softyouappsc.data.datasource.network.VideoGamesApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class VideoGamesRepository @Inject constructor(
     private val apiHelper: VideoGamesApiHelper,
-    private val videoGameDao: VideoGamesDao
+    private val dataBaseDataSource: DataBaseDataSource
 ): VideoGamesRepositoryHelper  {
 
 
@@ -27,7 +27,7 @@ class VideoGamesRepository @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
     override fun getListVideoGamesDB(): Flow<VideoGames> {
-        return videoGameDao.getAllVideoGames().map { list ->
+        return dataBaseDataSource.getAllVideoGames().map { list ->
             val videoGames = VideoGames()
             videoGames.addAll(list)
             videoGames
@@ -35,15 +35,15 @@ class VideoGamesRepository @Inject constructor(
     }
 
     override fun getVideoGameByIdDB(idVG: Int): Flow<VideoGameDetail> {
-        return videoGameDao.getVideoGameById(idVG)
+        return dataBaseDataSource.getVideoGameById(idVG)
     }
 
     override fun saveVideoGameInDB(videoGame: VideoGameDetail) {
-        videoGameDao.saveVideoGameDetail(videoGame)
+        dataBaseDataSource.saveVideoGameDetail(videoGame)
     }
 
     override fun deleteVideoGameDB(videoGame: VideoGameDetail) {
-        videoGameDao.deleteVideoGameDB(videoGame)
+        dataBaseDataSource.deleteVideoGameDB(videoGame)
     }
 
 }

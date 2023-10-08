@@ -1,4 +1,4 @@
-package com.softyouappsc.data.database
+package com.softyouappsc.data.datasource.database.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

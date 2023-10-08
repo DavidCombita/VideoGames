@@ -2,7 +2,8 @@ package com.softyouappsc.data.network
 
 import com.google.gson.Gson
 import com.softyouappsc.data.CoroutinesTestRule
-import com.softyouappsc.data.database.VideoGamesDao
+import com.softyouappsc.data.datasource.database.room.VideoGamesDao
+import com.softyouappsc.data.datasource.network.VideoGamesApiHelper
 import com.softyouappsc.models.VideoGameDetail
 import com.softyouappsc.models.VideoGames
 import com.softyouappsc.data.repository.VideoGamesRepository

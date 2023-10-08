@@ -2,10 +2,8 @@ package com.softyouappsc.data.db
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.softyouappsc.data.database.VideoGamesDatabase
+import com.softyouappsc.data.datasource.database.room.VideoGamesDatabase
 import org.junit.Before
-import org.junit.runner.RunWith
 
 abstract class VideoGameDaoTest {
 

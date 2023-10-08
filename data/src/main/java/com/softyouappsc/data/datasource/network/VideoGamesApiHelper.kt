@@ -1,4 +1,4 @@
-package com.softyouappsc.data.network
+package com.softyouappsc.data.datasource.network
 
 import com.softyouappsc.models.VideoGameDetail
 import com.softyouappsc.models.VideoGames
