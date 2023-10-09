@@ -8,7 +8,7 @@ import javax.inject.Inject
 class RoomDataSource @Inject constructor(
     private val videoGameDao: VideoGamesDao
 ): DataBaseDataSource {
-    override suspend fun getAllVideoGames(): Flow<List<VideoGameDetail>> = videoGameDao.getAllVideoGames()
+    override fun getAllVideoGames(): Flow<List<VideoGameDetail>> = videoGameDao.getAllVideoGames()
 
     override fun saveVideoGameDetail(data: VideoGameDetail) {
         videoGameDao.saveVideoGameDetail(data)

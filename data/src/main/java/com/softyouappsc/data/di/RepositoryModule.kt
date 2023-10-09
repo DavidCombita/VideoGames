@@ -1,5 +1,6 @@
 package com.softyouappsc.data.di
 
+import com.softyouappsc.data.datasource.database.DataBaseDataSource
 import com.softyouappsc.data.datasource.database.room.VideoGamesDao
 import com.softyouappsc.data.datasource.network.VideoGamesApiHelper
 import com.softyouappsc.data.repository.VideoGamesRepository
@@ -16,7 +17,7 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideNetworkRepository(videoGamesApiHelper: VideoGamesApiHelper,
-                                 videoGamesDao: VideoGamesDao
+                                 videoGamesDataSource: DataBaseDataSource
     ): VideoGamesRepositoryHelper =
-        VideoGamesRepository(videoGamesApiHelper, videoGamesDao)
+        VideoGamesRepository(videoGamesApiHelper, videoGamesDataSource)
 }

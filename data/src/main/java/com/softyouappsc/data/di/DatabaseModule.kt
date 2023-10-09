@@ -2,6 +2,9 @@ package com.softyouappsc.data.di
 
 import android.content.Context
 import androidx.room.Room
+import com.softyouappsc.data.datasource.database.DataBaseDataSource
+import com.softyouappsc.data.datasource.database.realtime.RealtimeDataSource
+import com.softyouappsc.data.datasource.database.room.RoomDataSource
 import com.softyouappsc.data.datasource.database.room.VideoGamesDao
 import com.softyouappsc.data.datasource.database.room.VideoGamesDatabase
 import dagger.Module
@@ -29,4 +32,12 @@ object DatabaseModule {
     fun provideVideoGamesDao(appDatabase: VideoGamesDatabase): VideoGamesDao =
         appDatabase.videoGameDao()
 
+    @Provides
+    @Singleton
+    fun provideDataSourceDatabase(dao: VideoGamesDao): DataBaseDataSource =
+        RoomDataSource(dao)
+
+    /*@Provides
+    @Singleton
+    fun provideDataSourceDatabaseRealtime(): DataBaseDataSource = RealtimeDataSource()*/
 }

@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:406340562650:android:5efe7fec1775c4fb7cbfe3",
+        "mobilesdk_app_id": "1:406340562650:android:d386fa270fa5afbd7cbfe3",
         "android_client_info": {
-          "package_name": "com.softyouappsc.videogames"
+          "package_name": "com.softyouappsc.data"
         }
       },
       "oauth_client": [],
